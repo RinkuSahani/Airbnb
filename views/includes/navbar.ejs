@@ -1,0 +1,58 @@
+<style>
+  .search{
+    margin-left:25rem;
+  }
+  .search-inp{
+border-radius:1rem;
+  }
+  .search-btn{
+    border-radius:1rem;
+  }
+  .search-btn:hover{
+    background-color:#fe424d;
+  }
+
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/listings">Explore</a>
+      </div>
+      <div class="search">
+        <form class="d-flex" role="search" method="GET" action="/listings/search">
+          <input
+            class="form-control me-2 search-inp"
+            type="search"
+            name="location"
+            placeholder="Search your destination"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-dark search-btn" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <%if(currentUser){%>
+        <a class="nav-link" href="/logout"><b>LogOut</b></a>
+        <%}%> <%if(!currentUser){%>
+        <a class="nav-link active" aria-current="page" href="/signup"
+          ><b>SignUp</b></a
+        >
+        <a class="nav-link" href="/login"><b>LogIn</b></a>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</nav>

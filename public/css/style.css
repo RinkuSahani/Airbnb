@@ -1,0 +1,97 @@
+body{
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+.container{
+    flex:1;
+}
+/* navbar */
+.navbar{
+    height:5rem;
+    background-color:white;
+}
+
+.fa-compass{
+    color:#fe424d;
+    font-size:2rem;
+}
+.nav-link{
+    color:#222222 !important;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration:none;
+    color:#222222;
+}
+
+.f-info-links a:hover{
+    text-decoration:underline;
+}
+
+.f-info{
+    height:8rem;
+    background-color:#ebebeb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.f-info-link,.f-info-socials{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+}
+
+.f-info-socials i{
+    font-size:1.5rem;
+}
+
+.listing-card{
+ border:none !important;
+ margin-bottom:2rem;
+}
+
+.card-img-top{
+    border-radius:1rem !important;
+    width:100% !important;
+    object-fit:cover !important;
+}
+.show-card{
+    text-decoration:none;
+}
+.show-card:hover{
+    opacity:0.8;
+}
+
+.add-btn{
+    position:relative;
+    right:21.3rem;
+    background-color:#fe424d !important;
+    border:none !important;
+    
+}
+
+/* Show page */
+
+.show-img{
+    height:40vh ;
+    
+}
+
+.edit-btn,.delete-btn,.submit-btn{
+    background-color:#fe424d !important;
+    font-size:1rem !important;
+    border:none !important;
+}
+.buttons{
+    display:flex;
+    gap:1rem;
+}
+
+#map { height: 180px; }
+
