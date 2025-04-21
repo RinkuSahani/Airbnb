@@ -35,6 +35,23 @@
           <div class="invalid-feedback">Please enter a short description</div>
         </div>
 
+        <!-- Category -->
+        <div class="mb-3">
+           <label for="category" class="form-label">Category</label>
+           <select name="listing[category]" class="form-select" required>
+           <option value="" disabled <%= !listing.category ? 'selected' : '' %>>Select a category</option>
+           <option value="Beachfront" <%= listing.category === 'Beachfront' ? 'selected' : '' %>>Beachfront</option>
+           <option value="Urban" <%= listing.category === 'Urban' ? 'selected' : '' %>>Urban</option>
+           <option value="Mountain" <%= listing.category === 'Mountain' ? 'selected' : '' %>>Mountain</option>
+           <option value="Historic" <%= listing.category === 'Historic' ? 'selected' : '' %>>Historic</option>
+           <option value="Lakefront" <%= listing.category === 'Lakefront' ? 'selected' : '' %>>Lakefront</option>
+           <option value="Luxury" <%= listing.category === 'Luxury' ? 'selected' : '' %>>Luxury</option>
+           <option value="Island" <%= listing.category === 'Island' ? 'selected' : '' %>>Island</option>
+         </select>
+        <div class="invalid-feedback">Please select a category</div>
+        </div>
+
+
         <div>
           <p>Original listed image:</p>
           <img
