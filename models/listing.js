@@ -40,9 +40,9 @@ const listingSchema = new mongoose.Schema({
       "Luxury",
       "Ski Resort",
       "Safari",
-      "Island",
-    ],
-    required:true,
+      "Island"
+    ]
+  
   },
 });
 
