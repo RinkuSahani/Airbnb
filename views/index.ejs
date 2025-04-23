@@ -4,23 +4,18 @@
   .filters {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+  
   }
 
-  .filters::-webkit-scrollbar {
-    display: none;
-  }
 
   .filter {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     margin: 0 0.5rem;
-    /* white-space: nowrap; */
     padding: 0.4rem 0;
-    /* transition: all 0.2s ease-in-out; */
+  
   }
   .filter i {
     font-size: 1.5rem;
@@ -29,7 +24,6 @@
   }
   .filter i:hover {
     opacity: 1;
-    /* transform: scale(1.1); */
   }
 
   .switch {
@@ -158,16 +152,3 @@
   </div>
 </body>
 
-<script>
-  const scrollContainer = document.getElementById("filterScroll");
-  const scrollLeftBtn = document.getElementById("scrollLeft");
-  const scrollRightBtn = document.getElementById("scrollRight");
-
-  scrollLeftBtn.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
-  });
-
-  scrollRightBtn.addEventListener("click", () => {
-    scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
-  });
-</script>
