@@ -1,45 +1,46 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <style>
-  .filters {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-wrap: wrap;
-  }
-  .filter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-right: 1.2rem;
-    margin: 0.5rem;
-    padding: 0.5rem 0 0.5rem 0;
-    
-  }
-  .filter i {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    color:black;
-    opacity: 0.7;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-  }
-  .filter i:hover {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-  .switch {
-    font-size: 1.1rem;
-    margin-right: 0.5rem;
-    border: 1px solid black;
-    border-radius: 1.5rem;
-    height: 2.7rem;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    width: 18rem;
-    text-align: center;
-    
-  }
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.5rem;
+  white-space: nowrap;
+  padding: 0.4rem 0;
+  transition: all 0.2s ease-in-out;
+}
+.filter i {
+  font-size: 1.5rem;
+  color: black;
+  opacity: 0.7;
+}
+.filter i:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.switch {
+  font-size: 0.9rem;
+  border: 1px solid #000;
+  border-radius: 1.5rem;
+  height: 2.7rem;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+  background-color: white;
+}
   .form-check-label {
     margin-right: 1rem;
   }
@@ -119,52 +120,50 @@
       <p>Ski Resort</p>
     </div> -->
 
-
-    <div class="container-fluid py-2 bg-light position-relative">
+    <div class="container-fluid py-2 bg-light position-relative d-flex flex-wrap flex-md-nowrap align-items-center justify-content-between">
       <!-- Scroll Buttons -->
-      <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-3 shadow" id="scrollLeft">
+      <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-3 shadow d-none d-md-inline" id="scrollLeft">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-3 shadow" id="scrollRight">
+      <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-3 shadow d-none d-md-inline" id="scrollRight">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     
-      <!-- Filter Panel -->
-      <div class="d-flex overflow-hidden px-5">
-        <div class="d-flex gap-4 filters" id="filterScroll">
-          <!-- Filter Items -->
+      <!-- Scrollable Filter Container -->
+      <div class="overflow-auto flex-grow-1 mx-md-5 w-100" style="scrollbar-width: none;">
+        <div class="d-flex gap-3 filters flex-nowrap" id="filterScroll">
+          <% const filters = [
+            { icon: "fa-fire", label: "Trending" },
+            { icon: "fa-tree-city", label: "Treehouse" },
+            { icon: "fa-umbrella-beach", label: "Beachfront" },
+            { icon: "fa-mountain-city", label: "Mountain" },
+            { icon: "fa-chess-rook", label: "Urban" },
+            { icon: "fa-monument", label: "Historic" },
+            { icon: "fa-water", label: "Lakefront" },
+            { icon: "fa-gem", label: "Luxury" },
+            { icon: "fa-igloo", label: "Island" },
+            { icon: "fa-person-skiing", label: "Ski Resort" }
+          ]; %>
+    
+          <% filters.forEach(filter => { %>
           <div class="text-center filter">
-            <a href="/listings/filter?category=Trending" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-fire fs-3"></i>
-              <p class="mb-0 small">Trending</p>
+            <a href="/listings/filter?category=<%= filter.label %>" class="text-decoration-none text-dark">
+              <i class="fa-solid <%= filter.icon %> fs-3"></i>
+              <p class="mb-0 small"><%= filter.label %></p>
             </a>
           </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Treehouse" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-tree-city fs-3"></i>
-              <p class="mb-0 small">Tree house</p>
-            </a>
-          </div>
-          <!-- Add all filters here (as you already have) -->
+          <% }); %>
         </div>
+      </div>
+    
+      <!-- Toggle Switch -->
+      <div class="form-check form-switch switch mt-2 mt-md-0 ms-md-3">
+        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" />
+        <label class="form-check-label" for="switchCheckChecked">Total before tax</label>
       </div>
     </div>
     
-    
-
-    <div class="form-check-reverse form-switch ms-auto switch">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        role="switch"
-        id="switchCheckChecked"
-        unchecked
-      />
-      <label class="form-check-label" for="switchCheckChecked"
-        >Display total before taxes</label
-      >
-    </div>
-  </div>
+  
   <h2>All Listings</h2>
   <div class="row row-cols-lg-3 row-cols-md-3 row-col-sm-2">
     <%for(let listing of allListings){%>
@@ -190,29 +189,23 @@
 </body>
 
 <script>
-  let switchIcon = document.getElementById("switchCheckChecked");
-  switchIcon.addEventListener("click", () => {
-    let taxInfo = document.getElementsByClassName("Tax-money");
-    for (let info of taxInfo) {
-      if (info.style.display != "inline") {
-        info.style.display = "inline";
-      } else {
-        info.style.display = "none";
-      }
-    }
-  });
-
   const scrollContainer = document.getElementById('filterScroll');
   const scrollLeftBtn = document.getElementById('scrollLeft');
   const scrollRightBtn = document.getElementById('scrollRight');
 
-  scrollLeftBtn.addEventListener('click', () => {
+  scrollLeftBtn?.addEventListener('click', () => {
     scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
   });
 
-  scrollRightBtn.addEventListener('click', () => {
+  scrollRightBtn?.addEventListener('click', () => {
     scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
   });
 
-
+  document.getElementById("switchCheckChecked").addEventListener("change", () => {
+    const taxLabels = document.getElementsByClassName("Tax-money");
+    for (let item of taxLabels) {
+      item.style.display = item.style.display === "inline" ? "none" : "inline";
+    }
+  });
 </script>
+
