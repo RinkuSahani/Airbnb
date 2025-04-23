@@ -3,17 +3,17 @@
 <style>
   #filters {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding: 1rem 1rem;
-    gap: 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: #999 transparent;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 1rem;
+  gap: 1rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
   }
 
   #filters::-webkit-scrollbar {
-    height: 8px;
+    display: none;
   }
   #filters::-webkit-scrollbar-track {
     background: transparent;
@@ -52,6 +52,7 @@
     margin-left: 2rem;
     display: flex;
     align-items: center;
+    width:140px;
 
   }
 
