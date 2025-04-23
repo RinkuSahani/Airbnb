@@ -1,54 +1,54 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
 <style>
-.filters {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
+  .filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
 
-.filters::-webkit-scrollbar {
-  display: none;
-}
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 0.5rem;
-  white-space: nowrap;
-  padding: 0.4rem 0;
-  transition: all 0.2s ease-in-out;
-}
-.filter i {
-  font-size: 1.5rem;
-  color: black;
-  opacity: 0.7;
-}
-.filter i:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
+  .filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0.5rem;
+    white-space: nowrap;
+    padding: 0.4rem 0;
+    transition: all 0.2s ease-in-out;
+  }
+  .filter i {
+    font-size: 1.5rem;
+    color: black;
+    opacity: 0.7;
+  }
+  .filter i:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
 
-.switch {
-  font-size: 0.9rem;
-  border: 1px solid #000;
-  border-radius: 1.5rem;
-  height: 2.5rem;
-  padding: 0.2rem 0.6rem; 
-  white-space: nowrap;
-  background-color: white;
-  max-width: 200px;
-}
+  .switch {
+    font-size: 0.9rem;
+    border: 1px solid #000;
+    border-radius: 1.5rem;
+    height: 2.5rem;
+    padding: 0.2rem 0.6rem;
+    white-space: nowrap;
+    background-color: white;
+    max-width: 200px;
+  }
 
   .form-check-label {
     margin-right: 1rem;
   }
   .form-check-input {
-    position:relative;
-    right:1rem;
+    position: relative;
+    right: 1rem;
   }
   .Tax-money {
     display: none;
@@ -56,100 +56,148 @@
   .card-text {
     display: inline;
   }
-  
 </style>
 <body>
-  
+  <div class="filters">
+    <div class="filter">
+      <div
+        class="container-fluid py-2 bg-light position-relative d-flex align-items-center"
+        style="width: 65%"
+      >
+        <!-- Scroll Buttons -->
+        <button
+          class="btn btn-light position-absolute start-0 top-30 translate-middle-y z-3 shadow"
+          id="scrollLeft"
+        >
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button
+          class="btn btn-light position-absolute end-0 top-30 translate-middle-y z-3 shadow"
+          id="scrollRight"
+        >
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
 
-    <div class="filters">
-      <div class="filter">
-    <div class="container-fluid py-2 bg-light position-relative d-flex align-items-center " style="width:65%">
-      <!-- Scroll Buttons -->
-      <button class="btn btn-light position-absolute start-0 top-30 translate-middle-y z-3 shadow" id="scrollLeft">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <button class="btn btn-light position-absolute end-0 top-30 translate-middle-y z-3 shadow" id="scrollRight">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
-    
-      <!-- Scrollable Filter Container -->
-      <div  class="overflow-hidden" style="width: 65%; padding-left: 1rem; padding-right: 1rem; margin-left:2rem;">
-        <div class="d-flex gap-4 filters" id="filterScroll">
-          <!-- Filter Items -->
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Trending" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-fire fs-3"></i>
-              <p class="mb-0 small">Trending</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Treehouse" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-tree-city fs-3"></i>
-              <p class="mb-0 small">Tree house</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Beachfront" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-umbrella-beach fs-3"></i>
-              <p class="mb-0 small">Beachfront</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Mountain" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-mountain-city fs-3"></i>
-              <p class="mb-0 small">Mountain</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Urban" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-chess-rook fs-3"></i>
-              <p class="mb-0 small">Urban</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Historic" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-monument fs-3"></i>
-              <p class="mb-0 small">Historic</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Lakefront" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-water fs-3"></i>
-              <p class="mb-0 small">Lakefront</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Luxury" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-gem fs-3"></i>
-              <p class="mb-0 small">Luxury</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Island" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-igloo fs-3"></i>
-              <p class="mb-0 small">Island</p>
-            </a>
-          </div>
-          <div class="text-center filter">
-            <a href="/listings/filter?category=Ski Resort" class="text-decoration-none text-dark">
-              <i class="fa-solid fa-person-skiing fs-3"></i>
-              <p class="mb-0 small">Ski Resort</p>
-            </a>
+        <!-- Scrollable Filter Container -->
+        <div
+          class="overflow-hidden"
+          style="
+            width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: 2rem;
+          "
+        >
+          <div class="d-flex gap-4 filters" id="filterScroll">
+            <!-- Filter Items -->
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Trending"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-fire fs-3"></i>
+                <p class="mb-0 small">Trending</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Treehouse"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-tree-city fs-3"></i>
+                <p class="mb-0 small">Tree house</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Beachfront"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-umbrella-beach fs-3"></i>
+                <p class="mb-0 small">Beachfront</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Mountain"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-mountain-city fs-3"></i>
+                <p class="mb-0 small">Mountain</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Urban"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-chess-rook fs-3"></i>
+                <p class="mb-0 small">Urban</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Historic"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-monument fs-3"></i>
+                <p class="mb-0 small">Historic</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Lakefront"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-water fs-3"></i>
+                <p class="mb-0 small">Lakefront</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Luxury"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-gem fs-3"></i>
+                <p class="mb-0 small">Luxury</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Island"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-igloo fs-3"></i>
+                <p class="mb-0 small">Island</p>
+              </a>
+            </div>
+            <div class="text-center filter">
+              <a
+                href="/listings/filter?category=Ski Resort"
+                class="text-decoration-none text-dark"
+              >
+                <i class="fa-solid fa-person-skiing fs-3"></i>
+                <p class="mb-0 small">Ski Resort</p>
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-      </div>
+    <!-- Toggle Switch -->
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="switchCheckChecked"
+      />
+      <label class="form-check-label" for="switchCheckChecked"
+        >Total before tax</label
+      >
     </div>
-    
-      <!-- Toggle Switch -->
-  <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" />
-    <label class="form-check-label" for="switchCheckChecked">Total before tax</label>
   </div>
-</div>
-    
-  
+
   <h2>All Listings</h2>
   <div class="row row-cols-lg-3 row-cols-md-3 row-col-sm-2">
     <%for(let listing of allListings){%>
@@ -175,18 +223,15 @@
 </body>
 
 <script>
- 
-  const scrollContainer = document.getElementById('filterScroll');
-  const scrollLeftBtn = document.getElementById('scrollLeft');
-  const scrollRightBtn = document.getElementById('scrollRight');
+  const scrollContainer = document.getElementById("filterScroll");
+  const scrollLeftBtn = document.getElementById("scrollLeft");
+  const scrollRightBtn = document.getElementById("scrollRight");
 
-  scrollLeftBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
+  scrollLeftBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
   });
 
-  scrollRightBtn.addEventListener('click', () => {
-    scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
+  scrollRightBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
   });
-
 </script>
-
