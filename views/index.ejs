@@ -52,6 +52,7 @@
     margin-left: 2rem;
     display: flex;
     align-items: center;
+
   }
 
   .scroll-wrapper {
@@ -75,8 +76,16 @@
   .scroll-btn:hover {
     background-color: #eee;
   }
+  .main-filter{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap:nowrap;
+  }
 </style>
 
+
+<div class="main-filter">
 <div class="scroll-wrapper">
   <button class="scroll-btn left-btn" onclick="scrollFilters(-200)">
     <i class="fa-solid fa-chevron-left"></i>
@@ -132,7 +141,7 @@
     <label class="form-check-label" for="switchCheckChecked">Display total after taxes</label>
   </div>
 </div>
-
+</div>
 <h2>All Listings</h2>
 <div class="row row-cols-lg-3 row-cols-md-3 row-col-sm-2">
   <% for(let listing of allListings) { %>
