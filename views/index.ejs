@@ -36,11 +36,13 @@
   font-size: 0.9rem;
   border: 1px solid #000;
   border-radius: 1.5rem;
-  height: 2.7rem;
-  padding: 0.4rem 1rem;
+  height: 2.5rem;
+  padding: 0.2rem 0.6rem; 
   white-space: nowrap;
   background-color: white;
+  max-width: 200px;
 }
+
   .form-check-label {
     margin-right: 1rem;
   }
@@ -58,80 +60,20 @@
 </style>
 <body>
   
-  <!-- <div class="filters">
-    <div class="filter">
-      <div>
-       <a href="/listings/filter?category=Treehouse"><i class="fa-solid fa-fire"></i></a> 
-      </div>
-      <p>Trending</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Treehouse"><i class="fa-solid fa-tree-city"></i></a>
-      </div>
-      <p>Tree house</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Beachfront"><i class="fa-solid fa-umbrella-beach"></i></a>
-      </div>
-      <p>Beachfront</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Mountain"><i class="fa-solid fa-mountain-city"></i></a>
-      </div>
-      <p>Mountain</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Urban"><i class="fa-solid fa-chess-rook"></i></a>
-      </div>
-      <p>Urban</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Historic"><i class="fa-solid fa-person-swimming"></i></a>
-      </div>
-      <p>Historic</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a  href="/listings/filter?category=Lakefront"><i class="fa-solid fa-tent"></i></a>
-      </div>
-      <p>Lakefront</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a  href="/listings/filter?category=Luxury"><i class="fa-solid fa-tractor"></i></a>
-      </div>
-      <p>Luxury</p>
-    </div>
-    <div class="filter">
-      <div>
-        <a href="/listings/filter?category=Island"><i class="fa-solid fa-igloo"></i></a>
-      </div>
-      <p>Island</p>
-    </div>
-    <div class="filter">
-      <div>
-       <a href="/listings/filter?category=Ski Resort"><i class="fa-solid fa-person-swimming"></i></a>
-      </div>
-      <p>Ski Resort</p>
-    </div> --> -->
+
     <div class="filters">
       <div class="filter">
     <div class="container-fluid py-2 bg-light position-relative d-flex align-items-center">
       <!-- Scroll Buttons -->
-      <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-3 shadow" id="scrollLeft">
+      <button class="btn btn-light position-absolute start-0 top-30 translate-middle-y z-3 shadow" id="scrollLeft">
         <i class="fa-solid fa-chevron-left"></i>
       </button>
-      <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-3 shadow" id="scrollRight">
+      <button class="btn btn-light position-absolute end-0 top-30 translate-middle-y z-3 shadow" id="scrollRight">
         <i class="fa-solid fa-chevron-right"></i>
       </button>
     
       <!-- Scrollable Filter Container -->
-      <div class="overflow-hidden w-100 px-5">
+      <div class="overflow-hidden w-100 px-3">
         <div class="d-flex gap-4 filters" id="filterScroll">
           <!-- Filter Items -->
           <div class="text-center filter">
