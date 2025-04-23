@@ -22,9 +22,12 @@
     font-size: 1.5rem;
     color:black;
     opacity: 0.7;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
   }
   .filter i:hover {
     opacity: 1;
+    transform: scale(1.1);
   }
   .switch {
     font-size: 1.1rem;
@@ -53,7 +56,8 @@
   
 </style>
 <body>
-  <div class="filters">
+  
+  <!-- <div class="filters">
     <div class="filter">
       <div>
        <a href="/listings/filter?category=Treehouse"><i class="fa-solid fa-fire"></i></a> 
@@ -62,13 +66,13 @@
     </div>
     <div class="filter">
       <div>
-        <a href="/listings/filter?category=Treehouse"><i class="fa-solid fa-bed"></i></a>
+        <a href="/listings/filter?category=Treehouse"><i class="fa-solid fa-tree-city"></i></a>
       </div>
       <p>Tree house</p>
     </div>
     <div class="filter">
       <div>
-        <a href="/listings/filter?category=Beachfront"><i class="fa-solid fa-city"></i></a>
+        <a href="/listings/filter?category=Beachfront"><i class="fa-solid fa-umbrella-beach"></i></a>
       </div>
       <p>Beachfront</p>
     </div>
@@ -113,7 +117,41 @@
        <a href="/listings/filter?category=Ski Resort"><i class="fa-solid fa-person-swimming"></i></a>
       </div>
       <p>Ski Resort</p>
+    </div> -->
+
+
+    <div class="container-fluid py-2 bg-light position-relative">
+      <!-- Scroll Buttons -->
+      <button class="btn btn-light position-absolute start-0 top-50 translate-middle-y z-3 shadow" id="scrollLeft">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="btn btn-light position-absolute end-0 top-50 translate-middle-y z-3 shadow" id="scrollRight">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    
+      <!-- Filter Panel -->
+      <div class="d-flex overflow-hidden px-5">
+        <div class="d-flex gap-4 filters" id="filterScroll">
+          <!-- Filter Items -->
+          <div class="text-center filter">
+            <a href="/listings/filter?category=Trending" class="text-decoration-none text-dark">
+              <i class="fa-solid fa-fire fs-3"></i>
+              <p class="mb-0 small">Trending</p>
+            </a>
+          </div>
+          <div class="text-center filter">
+            <a href="/listings/filter?category=Treehouse" class="text-decoration-none text-dark">
+              <i class="fa-solid fa-tree-city fs-3"></i>
+              <p class="mb-0 small">Tree house</p>
+            </a>
+          </div>
+          <!-- Add all filters here (as you already have) -->
+        </div>
+      </div>
     </div>
+    
+    
+
     <div class="form-check-reverse form-switch ms-auto switch">
       <input
         class="form-check-input"
@@ -163,4 +201,18 @@
       }
     }
   });
+
+  const scrollContainer = document.getElementById('filterScroll');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+
+  scrollLeftBtn.addEventListener('click', () => {
+    scrollContainer.scrollBy({ left: -200, behavior: 'smooth' });
+  });
+
+  scrollRightBtn.addEventListener('click', () => {
+    scrollContainer.scrollBy({ left: 200, behavior: 'smooth' });
+  });
+
+
 </script>
