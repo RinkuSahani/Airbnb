@@ -84,6 +84,67 @@
     align-items:center;
     flex-wrap:nowrap;
   }
+
+  @media (max-width: 992px) {
+    .main-filter {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .tax-toggle {
+      width: 100%;
+      margin: 1rem 0 0 0;
+    }
+
+    .listing-card img {
+      height: 15rem !important;
+    }
+
+    .scroll-wrapper {
+      padding: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .scroll-btn {
+      display: none;
+    }
+
+    .tax-toggle {
+      font-size: 0.7rem;
+    }
+
+    .filter {
+      margin-top: 1rem;
+      margin-right: 1rem;
+    }
+
+    .filter p {
+      font-size: 0.7rem;
+    }
+
+    .listing-card img {
+      height: 13rem !important;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .listing-card img {
+      height: 11rem !important;
+    }
+
+    .card-text b {
+      font-size: 0.85rem;
+    }
+
+    .card-text {
+      font-size: 0.75rem;
+    }
+  }
 </style>
 
 
@@ -180,5 +241,7 @@
   function scrollFilters(offset) {
     const container = document.getElementById("filters");
     container.scrollLeft += offset;
-  }
+  };
+
+ 
 </script>
