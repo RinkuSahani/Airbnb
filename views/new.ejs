@@ -4,6 +4,7 @@
   <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
    <div class="row">
     <div class="col-8 offset-2">
+     
       <h2>Create a new list</h2>
       <div>
         <label for="title" class="form-label">Title</label>
@@ -26,9 +27,9 @@
         <label for="description" class="form-label">Description</label>
         <textarea name="listing[description]" class="form-control" id="description" required></textarea>
         <div class="invalid-feedback">Please enter a short description</div>
-    </div>
+      </div>
     
-    <div class="mb-3">
+      <div class="mb-3">
       <label for="category" class="form-label">Category</label>
       <select name="listing[category]" class="form-select" required>
         <option value="" disabled selected>Select a category</option>
@@ -42,7 +43,7 @@
         <option value="Island">Island</option>
       </select>
       <div class="invalid-feedback">Please select a category</div>
-    </div>
+     </div>
     
   
      <div class="row">
@@ -81,11 +82,13 @@
         <div class="invalid-feedback">Location should be valid</div>
         <br>
       </div>
-      </div>
-      <br>
       <div class="submit-wrapper text-center">
         <button class="btn btn-dark add-btn" type="submit">Add</button>
       </div>
+
+      </div>
+      <br>
+    
       <br>
      
     </div>
