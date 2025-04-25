@@ -93,5 +93,20 @@ body{
     gap:1rem;
 }
 
-#map { height: 180px; }
+@media (max-width: 576px) {
+    .submit-wrapper {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      z-index: 999;
+    }
+  
+    .submit-wrapper .add-btn {
+      width: 100%;
+    }
+  }
+
+
 

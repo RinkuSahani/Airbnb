@@ -2,7 +2,7 @@
 <body>
   
   <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
-   <div class="row">
+   <div class="row row-cols-lg-3 row-cols-md-3 row-col-sm-2">
     <div class="col-8 offset-2">
       <h2>Create a new list</h2>
       <div>
@@ -15,14 +15,14 @@
 
       <div>
         <label for="image" class="form-label">Upload Listing image:</label>
-        <input
-          type="file"
+        <input                                                                                                                                                                                                                                                          
+          type="file"                                                      
           name="listing[image]"
           class="form-control"
         />
       </div>
     
-      <div>
+      <div>                                       
         <label for="description" class="form-label">Description</label>
         <textarea name="listing[description]" class="form-control" id="description" required></textarea>
         <div class="invalid-feedback">Please enter a short description</div>
@@ -69,7 +69,7 @@
       </div>
      </div>
       <div>
-        <label for="location" class="form-label">Location</label>
+        <label for="location" class="form-label ">Location</label>
   
         <input
           type="text"
@@ -79,11 +79,12 @@
           required
         />
         <div class="invalid-feedback">Location should be valid</div>
+        <br>
       </div>
       </div>
       <br>
-      <div class="text-center">
-        <button class="btn btn-dark add-btn">Add</button>
+      <div class="submit-wrapper text-center">
+        <button class="btn btn-dark add-btn" type="submit">Add</button>
       </div>
       <br>
      
