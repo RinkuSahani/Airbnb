@@ -5,21 +5,6 @@
       width: 100% !important;
       margin: 0 auto !important;
     }
-
-    .submit-wrapper {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: white;
-      padding: 1rem;
-      z-index: 1000;
-     
-    }
-
-    .submit-wrapper .add-btn {
-      width: 100%;
-    }
   }
 </style>
 
@@ -79,6 +64,8 @@
           <label for="location" class="form-label">Location</label>
           <input type="text" placeholder="Enter you location" name="listing[location]" class="form-control" required />
           <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <div class="div">
           <button class="btn btn-dark add-btn" type="submit">Add</button>
         </div>
           
