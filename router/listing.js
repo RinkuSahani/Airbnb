@@ -15,7 +15,7 @@ router.get("/new", isLoggedIn, controllerRoute.newRoute);
 
 //  INDEX route - show all listings & CREATE route - create new listing
 router
-  .route("/")
+  .route("")
   .get(wrapAsync(controllerRoute.index))
   .post(isLoggedIn,upload.single('listing[image]'),validateListing,wrapAsync(controllerRoute.createRoute));
 
