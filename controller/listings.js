@@ -70,8 +70,9 @@ module.exports.destroyRoute = async (req, res) => {
 module.exports.searchRoute = async (req, res) => {
   const location = req.query;
   const listing = await Listing.findOne(location);
-  if (!listing) {
-    return res.status(404).send("Listing not found");
+  if (!listing.location) {
+    req.flash("error","Location not found!");
+    res.redirect("/listings");
   }
   res.redirect(`/listings/${listing._id}`);
 };
