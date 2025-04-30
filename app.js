@@ -108,8 +108,7 @@ app.use("/", userRoutes);
 
 // ===== Root Route =====
 app.get("/", (req, res) => {
-  console.dir(req.signedCookies);
-  res.send("This is the root page.");
+  res.render("root.ejs");
 });
 
 // ===== 404 Handler =====
