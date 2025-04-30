@@ -88,13 +88,14 @@ body{
 /* root page */
 
 .root-div{
+    position:absolute;
     border:1px solid black;
     background-color:#fe424d;
     color:black;
     width:100%;
     height:4rem;
-    margin-top:10px;
-    padding:0.7rem;
+    margin:10px auto;
+    padding:0.5rem;
     text-align:center;
     overflow: hidden;
 }
@@ -109,7 +110,7 @@ body{
 }
 .root-anime{
     white-space: nowrap; 
-   animation: rootAnime 5s infinite linear;
+   animation: rootAnime 8s infinite linear;
 }
 
     
